@@ -1,0 +1,79 @@
+<mujoco model="manipulator">
+		<compiler angle="degree" coordinate="local" inertiafromgeom="auto" meshdir="meshes/"/>
+		<option gravity="0 0 0" integrator="RK4" iterations="30" timestep="0.01"/>
+
+		<default>
+		<joint armature="1" limited="true" stiffness="10" damping="15" frictionloss="5.0"/>
+		<geom conaffinity="1" condim="3" contype="1" friction=".5 .1 .1" margin="0.002"/>
+		<motor ctrllimited="true"/>
+		<position ctrllimited="true"/>
+		</default>
+
+		<asset>
+		<texture builtin="gradient" height="100" rgb1="1.0 1.0 1.0" rgb2="1.0 1.0 1.0" type="skybox" width="100"/>
+		<texture builtin="flat" height="32" name="arm_tex" rgb1="0.9 0.3 0.3" type="2d" width="32"/>
+		<texture builtin="flat" height="32" name="gripper_tex" rgb1="0.0 0.0 0.0" type="cube" width="32"/>
+
+		<material name="arm_mat" shininess="0.1" specular="0.1" texture="arm_tex"/>
+		<material name="gripper_mat" shininess="1" specular="1" texture="gripper_tex"/>
+		</asset>
+
+		<worldbody>
+		<light cutoff="45" diffuse=".8 .8 .8" dir="0 0.16 -1" directional="false" name="light" pos="0 -2.0 8.0" specular="0.3 0.3 0.3"/>
+
+		<body name="base_link" pos="0 0 -0.1">
+		<geom fromto="0 0 0 0 0 0.1" material="arm_mat" name="base_link" rgba="0.0 0.0 0.0 1" size="0.085" type="cylinder"/>
+		</body>
+
+		<body name="l1" pos="0 0 0">
+<geom fromto="0 0 0 0 0 0.23" material="arm_mat" name="l1" rgba="0.9 0.3 0.3 1" size="0.085" type="cylinder"/>
+<geom fromto="0 0 0.23 0 -0.16 0.23" material="arm_mat" name="l1_ex" rgba="0.0 0.0 0.0 1" size="0.085" type="capsule"/>
+<joint axis="0 0 1" name="j1" pos="0 0 0" range="-90 90" damping="35.84" frictionloss="8.27"/>
+
+<body name="l2" pos="0 -0.16 0.23">
+<geom fromto="0 0 0 0.58 0 0" material="arm_mat" name="l2" rgba="0.9 0.3 0.3 1" size="0.085" type="cylinder"/>
+<geom fromto="0.58 0 0 0.58 0.16 0" material="arm_mat" name="l2_ex" rgba="0.0 0.0 0.0 1" size="0.085" type="capsule"/>
+<joint axis="0.0 1.0 0.0" name="j2" pos="0 0 0" range="-90 60" damping="35.85" frictionloss="12.13"/>
+
+<body name="l3" pos="0.58 0.16 0">
+<geom fromto="0 0 0 0.28 0 0" material="arm_mat" name="l3" rgba="0.9 0.3 0.3 1" size="0.085" type="cylinder"/>
+<geom fromto="0.28 0 0 0.28 -0.16 0" material="arm_mat" name="l3_ex" rgba="0.0 0.0 0.0 1" size="0.085" type="capsule"/>
+<joint axis="0.0 1.0 0.0" name="j3" pos="0 0 0" range="-30 60" damping="31.39" frictionloss="9.16"/>
+
+<body name="l4" pos="0.28 -0.16 0">
+<geom fromto="0 0 0 0.36 0 0" material="arm_mat" name="l4" rgba="0.9 0.3 0.3 1" size="0.085" type="cylinder"/>
+<geom fromto="0.36 0 0 0.36 0.16 0" material="arm_mat" name="l4_ex" rgba="0.0 0.0 0.0 1" size="0.085" type="capsule"/>
+<joint axis="0.0 1.0 0.0" name="j4" pos="0 0 0" range="-30 60" damping="25.55" frictionloss="9.09"/>
+
+<body name="l5" pos="0.36 0.16 0">
+<geom fromto="0 0 0 0.27 0 0" material="arm_mat" name="l5" rgba="0.9 0.3 0.3 1" size="0.085" type="cylinder"/>
+<geom fromto="0.27 0 0 0.27 -0.16 0" material="arm_mat" name="l5_ex" rgba="0.0 0.0 0.0 1" size="0.085" type="capsule"/>
+<joint axis="0.0 1.0 0.0" name="j5" pos="0 0 0" range="-30 60" damping="23.72" frictionloss="11.23"/>
+
+<body name="l6" pos="0.27 -0.16 0">
+<geom fromto="0 0 0 0.31 0 0" material="arm_mat" name="l6" rgba="0.9 0.3 0.3 1" size="0.085" type="cylinder"/>
+<joint axis="0.0 1.0 0.0" name="j6" pos="0 0 0" range="-30 60" damping="23.49" frictionloss="10.33"/>
+
+<body name="gripper" pos="0.31 0 0">
+<geom fromto="0.05 -0.07 0 0.05 0.07 0" material="gripper_mat" name="gripper" rgba="0.0 0.0 0.0 1" size="0.085" type="capsule"/><joint axis="1 0 0" name="j7" pos="0 0 0" range="-90 90" damping="15" frictionloss="5.0"/><body name="finger" pos="0.1 0 0">
+<geom fromto="0 0.0 0 0.1 0.0 0" material="gripper_mat" name="finger" rgba="0.0 0.0 0.0 1" size="0.020 0.06 0.06" type="box"/>
+</body>
+<site name="current" pos="0.2 0. 0.0" rgba="0. 0. 1.0 1" size="0.02" type="sphere"/>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</worldbody>
+<actuator>
+<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="j1" gear="96.73"/>
+<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="j2" gear="63.31"/>
+<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="j3" gear="86.41"/>
+<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="j4" gear="94.85"/>
+<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="j5" gear="71.73"/>
+<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="j6" gear="92.56"/>
+<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="j7" gear="80"/>
+</actuator>
+</mujoco>

@@ -1,0 +1,1 @@
+from Hexapod_24.envs.Hexapod_24 import Hexapod_v24

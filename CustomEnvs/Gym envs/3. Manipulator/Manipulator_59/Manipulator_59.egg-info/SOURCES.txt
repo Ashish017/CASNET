@@ -1,0 +1,7 @@
+README.md
+setup.py
+Manipulator_59.egg-info/PKG-INFO
+Manipulator_59.egg-info/SOURCES.txt
+Manipulator_59.egg-info/dependency_links.txt
+Manipulator_59.egg-info/requires.txt
+Manipulator_59.egg-info/top_level.txt

@@ -1,0 +1,6 @@
+setup.py
+Manipulator_73.egg-info/PKG-INFO
+Manipulator_73.egg-info/SOURCES.txt
+Manipulator_73.egg-info/dependency_links.txt
+Manipulator_73.egg-info/requires.txt
+Manipulator_73.egg-info/top_level.txt

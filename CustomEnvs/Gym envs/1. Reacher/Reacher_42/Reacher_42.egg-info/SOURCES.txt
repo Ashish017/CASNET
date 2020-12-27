@@ -1,0 +1,7 @@
+README.md
+setup.py
+Reacher_42.egg-info/PKG-INFO
+Reacher_42.egg-info/SOURCES.txt
+Reacher_42.egg-info/dependency_links.txt
+Reacher_42.egg-info/requires.txt
+Reacher_42.egg-info/top_level.txt

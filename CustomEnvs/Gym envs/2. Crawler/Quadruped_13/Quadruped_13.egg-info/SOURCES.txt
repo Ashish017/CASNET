@@ -1,0 +1,7 @@
+README.md
+setup.py
+Quadruped_13.egg-info/PKG-INFO
+Quadruped_13.egg-info/SOURCES.txt
+Quadruped_13.egg-info/dependency_links.txt
+Quadruped_13.egg-info/requires.txt
+Quadruped_13.egg-info/top_level.txt

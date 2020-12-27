@@ -1,0 +1,1 @@
+from Manipulator_64.envs.Manipulator_64 import Manipulator_v64
